@@ -1,0 +1,299 @@
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: sans-serif; padding: 20px; }
+.header { background: #2b70b5; color: white; padding: 15px; border-radius: 4px; margin-bottom: 20px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ccc; padding: 10px; }
+th { background: #f2f2f2; }
+.evn { background: #eee; padding: 4px 6px; margin:2px; display:inline-block; font-family: monospace; }
+.track-box { background:#006666; color:white; padding:5px 10px; border-radius:4px; }
+.highlight { background: yellow; color: black; }
+a { text-decoration: none; color: inherit; }
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+#filterMissingBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border: 2px solid #c0392b;
+    border-radius: 6px;
+    background: white;
+    color: #c0392b;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s;
+}
+#filterMissingBtn.active {
+    background: #c0392b;
+    color: white;
+}
+#filterMissingBtn .badge {
+    background: #c0392b;
+    color: white;
+    border-radius: 999px;
+    padding: 1px 8px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: background 0.15s, color 0.15s;
+}
+#filterMissingBtn.active .badge {
+    background: white;
+    color: #c0392b;
+}
+
+tr.missing-evn td {
+    background: #fff5f5;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h2>S//Tracks Proof of Concept Burgstall(Murr)</h2>
+<p>20.4.2026, 21:35:40</p>
+</div>
+
+<div class="controls">
+    <input id="searchInput" placeholder="🔎 Wagennummer suchen..."
+        style="padding:10px;width:280px;border:1px solid #ccc;border-radius:6px;font-size:14px;">
+
+    <button id="filterMissingBtn" title="Nur Züge ohne Wagenreihung anzeigen">
+        ⚠️ Fehlende Wagenreihung
+        <span class="badge">0</span>
+    </button>
+</div>
+
+<table id="reportTable">
+<thead>
+<tr>
+<th>Zeit</th>
+<th>Zug</th>
+<th>Ziel</th>
+<th>Link</th>
+<th>Wagenreihung</th>
+<th>Gleis</th>
+</tr>
+</thead>
+<tbody>
+
+<tr data-has-evn="1">
+<td>19:38</td>
+<td>S4<br><small>S 7461</small></td>
+<td>Stuttgart Schwabstr.</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207461/2026-04-20T17%3A33%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 046</span> <span class="evn">0431 046</span> <span class="evn">0431 546</span> <span class="evn">0430 546</span> <span class="evn">0430 241</span> <span class="evn">0431 241</span> <span class="evn">0431 741</span> <span class="evn">0430 741</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>19:47</td>
+<td>S4<br><small>S 7454</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207454/2026-04-20T17%3A02%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 204</span> <span class="evn">0431 204</span> <span class="evn">0431 704</span> <span class="evn">0430 704</span> <span class="evn">0430 735</span> <span class="evn">0431 735</span> <span class="evn">0431 235</span> <span class="evn">0430 235</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>20:08</td>
+<td>S4<br><small>S 7463</small></td>
+<td>Stuttgart Schwabstr.</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207463/2026-04-20T18%3A03%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 235</span> <span class="evn">0431 235</span> <span class="evn">0431 735</span> <span class="evn">0430 735</span> <span class="evn">0430 704</span> <span class="evn">0431 704</span> <span class="evn">0431 204</span> <span class="evn">0430 204</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>20:17</td>
+<td>S4<br><small>S 7456</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207456/2026-04-20T17%3A32%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 027</span> <span class="evn">0431 027</span> <span class="evn">0431 527</span> <span class="evn">0430 527</span> <span class="evn">0430 726</span> <span class="evn">0431 726</span> <span class="evn">0431 226</span> <span class="evn">0430 226</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>20:38</td>
+<td>S4<br><small>S 7465</small></td>
+<td>Stuttgart Schwabstr.</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207465/2026-04-20T18%3A33%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 226</span> <span class="evn">0431 226</span> <span class="evn">0431 726</span> <span class="evn">0430 726</span> <span class="evn">0430 527</span> <span class="evn">0431 527</span> <span class="evn">0431 027</span> <span class="evn">0430 027</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>20:47</td>
+<td>S4<br><small>S 7458</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207458/2026-04-20T18%3A02%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 239</span> <span class="evn">0431 239</span> <span class="evn">0431 739</span> <span class="evn">0430 739</span> <span class="evn">0430 206</span> <span class="evn">0431 206</span> <span class="evn">0431 706</span> <span class="evn">0430 706</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>21:08</td>
+<td>S4<br><small>S 7467</small></td>
+<td>Stuttgart Schwabstr.</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207467/2026-04-20T19%3A03%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 706</span> <span class="evn">0431 706</span> <span class="evn">0431 206</span> <span class="evn">0430 206</span> <span class="evn">0430 739</span> <span class="evn">0431 739</span> <span class="evn">0431 239</span> <span class="evn">0430 239</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>21:17</td>
+<td>S4<br><small>S 7460</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207460/2026-04-20T18%3A32%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 256</span> <span class="evn">0431 256</span> <span class="evn">0431 756</span> <span class="evn">0430 756</span> <span class="evn">0430 702</span> <span class="evn">0431 702</span> <span class="evn">0431 202</span> <span class="evn">0430 202</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>21:47</td>
+<td>S4<br><small>S 7462</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207462/2026-04-20T19%3A02%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 035</span> <span class="evn">0431 035</span> <span class="evn">0431 535</span> <span class="evn">0430 535</span> <span class="evn">0430 227</span> <span class="evn">0431 227</span> <span class="evn">0431 727</span> <span class="evn">0430 727</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>22:08</td>
+<td>S4<br><small>S 7471</small></td>
+<td>Stuttgart Schwabstr.</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207471/2026-04-20T20%3A03%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 727</span> <span class="evn">0431 727</span> <span class="evn">0431 227</span> <span class="evn">0430 227</span> <span class="evn">0430 535</span> <span class="evn">0431 535</span> <span class="evn">0431 035</span> <span class="evn">0430 035</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>22:47</td>
+<td>S4<br><small>S 7466</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207466/2026-04-20T20%3A02%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 004</span> <span class="evn">0431 004</span> <span class="evn">0431 504</span> <span class="evn">0430 504</span> <span class="evn">0430 217</span> <span class="evn">0431 217</span> <span class="evn">0431 717</span> <span class="evn">0430 717</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>23:08</td>
+<td>S4<br><small>S 7475</small></td>
+<td>Stuttgart Schwabstr.</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207475/2026-04-20T21%3A03%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 504</span> <span class="evn">0431 504</span> <span class="evn">0431 004</span> <span class="evn">0430 004</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>23:47</td>
+<td>S4<br><small>S 7470</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207470/2026-04-20T21%3A02%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 704</span> <span class="evn">0431 704</span> <span class="evn">0431 204</span> <span class="evn">0430 204</span> <span class="evn">0430 735</span> <span class="evn">0431 735</span> <span class="evn">0431 235</span> <span class="evn">0430 235</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>00:47</td>
+<td>S4<br><small>S 7474</small></td>
+<td>Backnang</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207474/2026-04-20T22%3A02%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 239</span> <span class="evn">0431 239</span> <span class="evn">0431 739</span> <span class="evn">0430 739</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+<tr data-has-evn="1">
+<td>05:08</td>
+<td>S4<br><small>S 7403</small></td>
+<td>Stuttgart Schwabstr.</td>
+<td style="text-align:center"><a href="https://bahn.expert/details/S%207403/2026-04-21T03%3A03%3A00.000Z?evaNumberAlongRoute=8001296" target="_blank" style="font-size:1.3rem;">🔎</a></td>
+<td><span class="evn">0430 717</span> <span class="evn">0431 717</span> <span class="evn">0431 217</span> <span class="evn">0430 217</span> <span class="evn">0430 739</span> <span class="evn">0431 739</span> <span class="evn">0431 239</span> <span class="evn">0430 239</span></td>
+<td style="text-align:center"><span class="track-box">1</span></td>
+</tr>
+
+</tbody>
+</table>
+
+<script>
+var filterMissingActive = false;
+var searchVal = "";
+
+function applyFilters() {
+    var rows = document.querySelectorAll("#reportTable tbody tr");
+
+    rows.forEach(function(row) {
+        var hasEvn = row.getAttribute("data-has-evn") === "1";
+        var cell = row.children[4];
+
+        if (!cell.hasAttribute("data-original")) {
+            cell.setAttribute("data-original", cell.textContent);
+        }
+        var original = cell.getAttribute("data-original");
+
+        var showByMissing = !filterMissingActive || !hasEvn;
+        var showBySearch = true;
+
+        if (searchVal.length > 0) {
+            showBySearch = original.toLowerCase().indexOf(searchVal) !== -1;
+        }
+
+        if (!showByMissing || !showBySearch) {
+            row.style.display = "none";
+            return;
+        }
+
+        row.style.display = "";
+
+        if (searchVal.length === 0) {
+            cell.innerHTML = original.replace(/(\d{4}\s\d{3})/g, '<span class="evn">$1</span>');
+            return;
+        }
+
+        var escaped = searchVal.replace(/[.*+?^{}()|[\\]\\]/g, '\\$&');
+        var highlighted = original.replace(
+            new RegExp("(" + escaped + ")", "gi"),
+            '<span class="highlight">$1</span>'
+        );
+
+        var result = "";
+        var parts = highlighted.split(/(<[^>]+>)/);
+        for (var i = 0; i < parts.length; i++) {
+            if (parts[i].startsWith("<")) {
+                result += parts[i];
+            } else {
+                result += parts[i].replace(/(\d{4}\s\d{3})/g, '<span class="evn">$1</span>');
+            }
+        }
+        cell.innerHTML = result;
+    });
+}
+
+document.getElementById("searchInput").addEventListener("input", function() {
+    searchVal = this.value.trim().toLowerCase();
+    applyFilters();
+});
+
+document.getElementById("filterMissingBtn").addEventListener("click", function() {
+    filterMissingActive = !filterMissingActive;
+    this.classList.toggle("active", filterMissingActive);
+    applyFilters();
+});
+</script>
+
+</body>
+</html>
